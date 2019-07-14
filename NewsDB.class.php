@@ -3,7 +3,7 @@ require_once "INewsDB.class.php";
 use \mysql_xdevapi\Exception;
 
 class NewsDB implements INewsDB{
-    const DB_NAME = "/db/news.db";
+    const DB_NAME = "db/news.db";
     private $_db = null;
 
     function __get($name)
