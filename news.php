@@ -1,5 +1,6 @@
 <?php
-
+require_once "NewsDB.class.php";
+$NewsDB = new NewsDB();
 ?>
 <!DOCTYPE html>
 <html>
