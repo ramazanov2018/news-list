@@ -1,5 +1,5 @@
 <?php
-require_once "NewsDB.class.php";
+require_once "classes/NewsDB.class.php";
 $news = new NewsDB();
 $errMsg = "";
 

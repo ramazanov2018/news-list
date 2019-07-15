@@ -12,7 +12,7 @@ if (empty($t) or empty($d))
     if (!$news->saveNews($t, $c, $d, $s)){
         $errMsg = "Произошла ошибка при сохранении";
     }else{
-        header("Location: news.php");
+        header("Location: index.php");
         exit;
     }
 }
