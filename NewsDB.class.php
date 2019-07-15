@@ -49,7 +49,9 @@ class NewsDB implements INewsDB{
 
     function saveNews($title, $category, $description, $source)
     {
-
+        $sql = "INSERT INTO msgs(title,  category, description, source)
+                    VALUES ('$title', '$category', '$description', '$source')";
+        $this->_db->exec($sql);
     }
 
 
@@ -62,6 +64,17 @@ class NewsDB implements INewsDB{
     function deleteNews($id)
     {
 
+    }
+
+    function clearStr($data)
+    {
+        $data = strip_tags($data);
+        return $this->_db->escapeString($data);
+    }
+
+    function clearInt($data)
+    {
+        return abs((int)$data);
     }
 }
 ?>
