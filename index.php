@@ -3,9 +3,16 @@ require_once "classes/NewsDB.class.php";
 $news = new NewsDB();
 $errMsg = "";
 
+//сохранение элемента
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     require "save_news.inc.php";
+}
+
+//удаление элемента по его id
+if (!empty($_GET["item_id"]))
+{
+    require "delete_news.inc.php";
 }
 ?>
 
@@ -41,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <input type="submit" value="Добавить!" />
 </form>
 <?php
+// получение элементов
     require "get_news.inc.php";
 ?>
 </body>

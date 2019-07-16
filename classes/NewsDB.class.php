@@ -97,6 +97,8 @@ class NewsDB implements INewsDB{
     function deleteNews($id)
     {
 
+        $sql = "DELETE FROM msgs WHERE id ='$id'";
+        return $this->_db->exec($sql);
     }
 
     function clearStr($data)
