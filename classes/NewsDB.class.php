@@ -1,13 +1,14 @@
 <?php
 require_once "INewsDB.class.php";
-use \mysql_xdevapi\Exception;
+require_once "DB.php";
 
-class NewsDB implements INewsDB{
-    const DB_NAME = "db/news.db";
+use \mysql_xdevapi\Exception;
+use \classes\DB;
+
+class NewsDB extends DB implements INewsDB{
     const RSS_NAME = "rss/rss.xml";
     const RSS_TITLE = "Новостная лента";
-    const RSS_LINC = "http://news-ltst/index.php";
-    private $_db = null;
+    const RSS_LINC = "http://news-list/index.php";
 
     function __get($name)
     {
@@ -20,8 +21,9 @@ class NewsDB implements INewsDB{
 
     function __construct()
     {
-        $this->_db = new SQLite3(self::DB_NAME);
-        if (filesize(self::DB_NAME) == 0)
+        parent::__construct();
+
+        if (filesize(self::$DB_NAME) == 0)
         {
             try {
                 $sql = "CREATE TABLE msgs(
